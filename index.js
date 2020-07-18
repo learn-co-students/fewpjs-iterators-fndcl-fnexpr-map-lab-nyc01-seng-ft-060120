@@ -11,6 +11,26 @@ const tutorials = [
   'what is JSONP?'
 ];
 
+const specialStrings = [
+  'OO',
+  'API',
+  'NaN',
+  'stopPropagation',
+  'preventDefault',
+  'JSONP'
+];
+
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(function(tutorial) {
+    let tutArray = tutorial.split(" ");
+    for (let i = 0; i < tutArray.length; i++) {
+      if (!specialStrings.includes(tutArray[i])) {
+        tutArray[i].toLowerCase();
+        tutArray[i] = tutArray[i].charAt(0).toUpperCase() + tutArray[i].slice(1);
+      } else if (tutArray[i] === 'stopPropagation' || tutArray[i] === 'preventDefault') {
+        tutArray[i] = tutArray[i].charAt(0).toUpperCase() + tutArray[i].slice(1);
+      }
+    }
+    return tutArray.join(' ')
+  })
 }
