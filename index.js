@@ -12,5 +12,7 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(string => string.replace(/\b(\w)/g,
+  (match) => match.toUpperCase()))
 }
+
