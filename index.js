@@ -11,6 +11,29 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+// const titleCased = (tutorials) => {
+//   return tutorials.map( line => {
+//     let words = line.split(" ")
+//     let titleWords = words.map( word => word.charAt(0).toUpperCase() + word.slice(1))
+//     let result = titleWords.join(" ")
+//     return result
+//   })
+// }
+
+const titleCased = (input) => {
+  return tutorials.map( line => {
+    let tokens = line.split(' ')
+    let capitalizedTokens =
+      tokens.map( token => token.charAt(0).toUpperCase() + token.slice(1) )
+    let response = capitalizedTokens.join(' ')
+    return response
+  })
 }
+
+
+// https://www.tutorialspoint.com/how-to-title-case-a-sentence-in-javascript
+
+// titleCased(tutorials)
+
+// We want all the titles to be "title case"
+// For example, `what does the this keyword mean?` should become `What Does The This Keyword Mean?`.
